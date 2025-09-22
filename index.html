@@ -36,7 +36,7 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Space for the fixed footer */
+            padding-bottom: 80px;
         }
 
         .main-wrapper {
@@ -48,7 +48,7 @@
 
         .brand-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             padding: 30px;
             background: var(--color-white);
             border-radius: 15px;
@@ -106,18 +106,64 @@
             margin-bottom: 25px;
             font-weight: 600;
         }
+        
+        .follow-cta {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow-subtle);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .follow-cta p {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 0 0 15px;
+        }
+        .cta-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .cta-icons a {
+            text-decoration: none;
+            color: var(--color-dark);
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        .cta-icons i {
+            font-size: 2.2em;
+        }
+        .cta-icons a:hover {
+            transform: translateY(-3px);
+        }
+        .cta-icons .fa-instagram:hover { color: #E1306C; }
+        .cta-icons .fa-whatsapp:hover { color: #25D366; }
 
-        .address-link {
-            font-size: 0.95em;
-            color: #777;
+        .address-card {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow-subtle);
+            text-align: center;
+            margin-bottom: 30px;
+            transition: transform var(--transition-medium);
             text-decoration: none;
             display: block;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            transition: color var(--transition-fast);
         }
-        .address-link:hover {
+        .address-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .address-card-icon {
+            font-size: 2em;
             color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+        .address-card-text {
+            color: var(--color-dark);
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 0;
         }
 
         .links-grid {
@@ -188,11 +234,8 @@
 
         .card-amazon i { color: #FF9900; }
         .card-meesho i { color: #F45244; }
-        .card-call i { color: #007bff; }
         .card-whatsapp i { color: #25D366; }
-        .card-instagram i { color: #E1306C; }
-        .card-map i { color: #4A90E2; }
-
+        
         .fixed-footer {
             position: fixed;
             bottom: 0;
@@ -216,6 +259,10 @@
             color: var(--color-primary);
             transform: translateY(-2px);
         }
+        .fixed-footer .fa-instagram { color: #E1306C; }
+        .fixed-footer .fa-whatsapp { color: #25D366; }
+        .fixed-footer .fa-location-dot { color: #4A90E2; }
+        .fixed-footer .fa-phone { color: #007bff; }
 
         @media (max-width: 600px) {
             body {
@@ -226,7 +273,7 @@
             }
             .brand-header {
                 padding: 25px;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
             .profile-pic {
                 width: 120px;
@@ -271,11 +318,29 @@
                 
                 <h1 id="brand-name">Abha By Abhay</h1>
                 <p class="tagline" id="brand-tagline">Exquisite Demifine Jewelry for Every Occasion</p>
-                <a id="address-link" href="#" target="_blank" class="address-link">
-                    <span id="brand-address">Your Address Will Go Here.</span>
-                </a>
             </div>
         </header>
+
+        <section class="follow-cta">
+            <p>Follow us for the latest **Jwellery Collections**</p>
+            <div class="cta-icons">
+                <a id="cta-instagram-link" href="#" target="_blank" aria-label="Follow on Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a id="cta-whatsapp-link" href="#" target="_blank" aria-label="Chat on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </section>
+
+        <a id="address-card-link" href="#" target="_blank" class="address-card">
+            <div class="address-card-icon">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <p id="address-card-text" class="address-card-text">
+                Your Address Will Go Here.<br>India
+            </p>
+        </a>
 
         <section class="links-grid">
             <a id="amazon-link" href="#" target="_blank" class="link-card card-amazon">
@@ -286,14 +351,9 @@
                 <i class="fas fa-gem"></i>
                 <span>Shop on Meesho</span>
             </a>
-
             <a id="whatsapp-group-link" href="#" target="_blank" class="link-card card-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>Join Our Community</span>
-            </a>
-            <a id="call-link" href="#" class="link-card card-call">
-                <i class="fas fa-phone"></i>
-                <span>Call Us</span>
             </a>
         </section>
     </div>
@@ -308,6 +368,9 @@
         <a id="footer-map-link" href="#" target="_blank" aria-label="Find Our Store">
             <i class="fas fa-location-dot"></i>
         </a>
+        <a id="footer-call-link" href="#" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
     </footer>
 
     <script>
@@ -316,7 +379,7 @@
             brandName: "Abha By Abhay",
             tagline: "Exquisite Demifine Jewelry for Every Occasion",
             address: "123 Elegance Lane, Mumbai, Maharashtra 400000, India",
-            googleMapsUrl: "http://googleusercontent.com/maps.google.com/4",
+            googleMapsUrl: "http://googleusercontent.com/maps.google.com/7",
             whatsappConnectNumber: "919876543210",
             whatsappGroupLink: "https://chat.whatsapp.com/YourWhatsAppGroupInviteCode",
             instagramHandle: "abha_by_abhay",
@@ -325,21 +388,24 @@
             callNumber: "+919876543210"
         };
 
-        // --- Update main content ---
         document.getElementById('profile-pic').src = config.profilePicUrl;
         document.getElementById('brand-name').innerText = config.brandName;
         document.getElementById('brand-tagline').innerText = config.tagline;
-        document.getElementById('brand-address').innerText = config.address;
-        document.getElementById('address-link').href = config.googleMapsUrl;
+        
+        document.getElementById('cta-instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
+        document.getElementById('cta-whatsapp-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
+        
+        document.getElementById('address-card-link').href = config.googleMapsUrl;
+        document.getElementById('address-card-text').innerText = config.address.replace(/, /g, '\n');
+        
         document.getElementById('amazon-link').href = config.amazonStoreLink;
         document.getElementById('meesho-link').href = config.meeshoStoreLink;
         document.getElementById('whatsapp-group-link').href = config.whatsappGroupLink;
-        document.getElementById('call-link').href = `tel:${config.callNumber}`;
 
-        // --- Update footer links ---
         document.getElementById('footer-instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
         document.getElementById('footer-whatsapp-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
         document.getElementById('footer-map-link').href = config.googleMapsUrl;
+        document.getElementById('footer-call-link').href = `tel:${config.callNumber}`;
 
         function hideIfPlaceholder(elementId, linkValue) {
             const element = document.getElementById(elementId);
@@ -347,17 +413,16 @@
                 element.style.display = 'none';
             }
         }
-        // Main links
-        hideIfPlaceholder('address-link', config.googleMapsUrl);
+        hideIfPlaceholder('cta-instagram-link', config.instagramHandle);
+        hideIfPlaceholder('cta-whatsapp-link', config.whatsappConnectNumber);
+        hideIfPlaceholder('address-card-link', config.googleMapsUrl);
         hideIfPlaceholder('amazon-link', config.amazonStoreLink);
         hideIfPlaceholder('meesho-link', config.meeshoStoreLink);
         hideIfPlaceholder('whatsapp-group-link', config.whatsappGroupLink);
-        hideIfPlaceholder('call-link', config.callNumber);
-
-        // Footer links
         hideIfPlaceholder('footer-instagram-link', config.instagramHandle);
         hideIfPlaceholder('footer-whatsapp-link', config.whatsappConnectNumber);
         hideIfPlaceholder('footer-map-link', config.googleMapsUrl);
+        hideIfPlaceholder('footer-call-link', config.callNumber);
 
         if (!config.tagline || config.tagline.includes("Your brand tagline")) {
             document.getElementById('brand-tagline').style.display = 'none';

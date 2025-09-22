@@ -14,12 +14,12 @@
 
     <style>
         :root {
-            --color-primary: #B8860B; /* Dark Goldenrod - Gold accent */
-            --color-secondary: #EADDCF; /* Light warm beige */
-            --color-dark: #3C3C3C; /* Rich charcoal */
+            --color-primary: #B8860B;
+            --color-secondary: #EADDCF;
+            --color-dark: #3C3C3C;
             --color-white: #FFFFFF;
-            --gradient-start: #FCF7F0; /* Lighter beige */
-            --gradient-end: #F0EADF; /* Slightly darker beige */
+            --gradient-start: #FCF7F0;
+            --gradient-end: #F0EADF;
             --shadow-subtle: rgba(0, 0, 0, 0.07);
             --transition-fast: 0.2s ease-out;
             --transition-medium: 0.3s ease;
@@ -27,20 +27,21 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            min-height: 100vh;
             margin: 0;
             padding: 0;
             color: var(--color-dark);
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
+            padding-bottom: 80px; /* Space for the fixed footer */
         }
 
         .main-wrapper {
             width: 100%;
-            max-width: 600px; /* Max width for the entire content block */
+            max-width: 600px;
             padding: 30px 20px;
             box-sizing: border-box;
         }
@@ -53,7 +54,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px var(--shadow-subtle);
             position: relative;
-            overflow: hidden; /* For pseudo-element background */
+            overflow: hidden;
         }
 
         .brand-header::before {
@@ -64,14 +65,14 @@
             width: 100%;
             height: 100%;
             background: url('https://images.unsplash.com/photo-1579547630737-fb412c1c3f59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fGplcmwlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTcwMDQ1NzU1MXww&ixlib=rb-4.0.3&q=80&w=1080') center center / cover no-repeat;
-            opacity: 0.1; /* Subtle overlay */
+            opacity: 0.1;
             z-index: 0;
             border-radius: 15px;
         }
 
         .header-content {
             position: relative;
-            z-index: 1; /* Ensure content is above pseudo-element */
+            z-index: 1;
         }
 
         .profile-pic {
@@ -80,7 +81,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--color-primary);
-            box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.2); /* Gold glow effect */
+            box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.2);
             margin-bottom: 20px;
             transition: transform var(--transition-medium);
         }
@@ -185,14 +186,41 @@
             z-index: 1;
         }
 
-        .card-instagram i { color: #E1306C; }
         .card-amazon i { color: #FF9900; }
         .card-meesho i { color: #F45244; }
-        .card-whatsapp i { color: #25D366; }
         .card-call i { color: #007bff; }
+        .card-whatsapp i { color: #25D366; }
+        .card-instagram i { color: #E1306C; }
         .card-map i { color: #4A90E2; }
 
+        .fixed-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+        }
+        .fixed-footer a {
+            color: var(--color-dark);
+            font-size: 1.5em;
+            margin: 0 20px;
+            transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        .fixed-footer a:hover {
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 600px) {
+            body {
+                padding-bottom: 70px;
+            }
             .main-wrapper {
                 padding: 20px 15px;
             }
@@ -227,6 +255,10 @@
             .link-card span {
                 font-size: 1em;
             }
+            .fixed-footer a {
+                font-size: 1.3em;
+                margin: 0 15px;
+            }
         }
     </style>
 </head>
@@ -246,10 +278,6 @@
         </header>
 
         <section class="links-grid">
-            <a id="instagram-link" href="#" target="_blank" class="link-card card-instagram">
-                <i class="fa-brands fa-instagram"></i>
-                <span>Follow Our Sparkle</span>
-            </a>
             <a id="amazon-link" href="#" target="_blank" class="link-card card-amazon">
                 <i class="fa-brands fa-amazon"></i>
                 <span>Shop on Amazon</span>
@@ -259,25 +287,28 @@
                 <span>Shop on Meesho</span>
             </a>
 
-            <a id="whatsapp-connect-link" href="#" target="_blank" class="link-card card-whatsapp">
+            <a id="whatsapp-group-link" href="#" target="_blank" class="link-card card-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
-                <span>Chat with Us</span>
+                <span>Join Our Community</span>
             </a>
             <a id="call-link" href="#" class="link-card card-call">
                 <i class="fas fa-phone"></i>
                 <span>Call Us</span>
             </a>
-
-            <a id="whatsapp-group-link" href="#" target="_blank" class="link-card card-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>Join Our Community</span>
-            </a>
-            <a id="map-link" href="#" target="_blank" class="link-card card-map">
-                <i class="fas fa-location-dot"></i>
-                <span>Find Our Store</span>
-            </a>
         </section>
     </div>
+
+    <footer class="fixed-footer">
+        <a id="footer-instagram-link" href="#" target="_blank" aria-label="Follow on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a id="footer-whatsapp-link" href="#" target="_blank" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a id="footer-map-link" href="#" target="_blank" aria-label="Find Our Store">
+            <i class="fas fa-location-dot"></i>
+        </a>
+    </footer>
 
     <script>
         const config = {
@@ -285,7 +316,7 @@
             brandName: "Abha By Abhay",
             tagline: "Exquisite Demifine Jewelry for Every Occasion",
             address: "123 Elegance Lane, Mumbai, Maharashtra 400000, India",
-            googleMapsUrl: "http://googleusercontent.com/maps.google.com/3",
+            googleMapsUrl: "http://googleusercontent.com/maps.google.com/4",
             whatsappConnectNumber: "919876543210",
             whatsappGroupLink: "https://chat.whatsapp.com/YourWhatsAppGroupInviteCode",
             instagramHandle: "abha_by_abhay",
@@ -294,19 +325,21 @@
             callNumber: "+919876543210"
         };
 
+        // --- Update main content ---
         document.getElementById('profile-pic').src = config.profilePicUrl;
         document.getElementById('brand-name').innerText = config.brandName;
         document.getElementById('brand-tagline').innerText = config.tagline;
         document.getElementById('brand-address').innerText = config.address;
-        
         document.getElementById('address-link').href = config.googleMapsUrl;
-        document.getElementById('whatsapp-connect-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
-        document.getElementById('whatsapp-group-link').href = config.whatsappGroupLink;
-        document.getElementById('instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
         document.getElementById('amazon-link').href = config.amazonStoreLink;
         document.getElementById('meesho-link').href = config.meeshoStoreLink;
-        document.getElementById('map-link').href = config.googleMapsUrl;
+        document.getElementById('whatsapp-group-link').href = config.whatsappGroupLink;
         document.getElementById('call-link').href = `tel:${config.callNumber}`;
+
+        // --- Update footer links ---
+        document.getElementById('footer-instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
+        document.getElementById('footer-whatsapp-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
+        document.getElementById('footer-map-link').href = config.googleMapsUrl;
 
         function hideIfPlaceholder(elementId, linkValue) {
             const element = document.getElementById(elementId);
@@ -314,14 +347,17 @@
                 element.style.display = 'none';
             }
         }
+        // Main links
         hideIfPlaceholder('address-link', config.googleMapsUrl);
-        hideIfPlaceholder('whatsapp-connect-link', config.whatsappConnectNumber);
-        hideIfPlaceholder('whatsapp-group-link', config.whatsappGroupLink);
-        hideIfPlaceholder('instagram-link', config.instagramHandle);
         hideIfPlaceholder('amazon-link', config.amazonStoreLink);
         hideIfPlaceholder('meesho-link', config.meeshoStoreLink);
-        hideIfPlaceholder('map-link', config.googleMapsUrl);
+        hideIfPlaceholder('whatsapp-group-link', config.whatsappGroupLink);
         hideIfPlaceholder('call-link', config.callNumber);
+
+        // Footer links
+        hideIfPlaceholder('footer-instagram-link', config.instagramHandle);
+        hideIfPlaceholder('footer-whatsapp-link', config.whatsappConnectNumber);
+        hideIfPlaceholder('footer-map-link', config.googleMapsUrl);
 
         if (!config.tagline || config.tagline.includes("Your brand tagline")) {
             document.getElementById('brand-tagline').style.display = 'none';

@@ -121,7 +121,7 @@
 
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for fewer columns */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -154,7 +154,7 @@
             transform-origin: left;
             transition: transform var(--transition-medium);
             z-index: 0;
-            border-radius: 12px; /* Match parent */
+            border-radius: 12px;
         }
 
         .link-card:hover::before {
@@ -169,13 +169,13 @@
         .link-card i {
             font-size: 2.2em;
             margin-bottom: 15px;
-            color: var(--color-primary); /* Default icon color */
+            color: var(--color-primary);
             transition: color var(--transition-fast);
             position: relative;
             z-index: 1;
         }
         .link-card:hover i {
-            color: var(--color-dark); /* Icon color on hover */
+            color: var(--color-dark);
         }
         
         .link-card span {
@@ -185,13 +185,12 @@
             z-index: 1;
         }
 
-        /* Specific icon colors (can override default) */
         .card-instagram i { color: #E1306C; }
-        .card-whatsapp i { color: #25D366; }
         .card-amazon i { color: #FF9900; }
         .card-meesho i { color: #F45244; }
-        .card-map i { color: #4A90E2; }
+        .card-whatsapp i { color: #25D366; }
         .card-call i { color: #007bff; }
+        .card-map i { color: #4A90E2; }
 
         @media (max-width: 600px) {
             .main-wrapper {
@@ -215,7 +214,7 @@
                 margin-bottom: 20px;
             }
             .links-grid {
-                grid-template-columns: 1fr; /* Single column on very small screens */
+                grid-template-columns: 1fr;
                 gap: 15px;
             }
             .link-card {
@@ -251,10 +250,6 @@
                 <i class="fa-brands fa-instagram"></i>
                 <span>Follow Our Sparkle</span>
             </a>
-            <a id="whatsapp-connect-link" href="#" target="_blank" class="link-card card-whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>Chat with Us</span>
-            </a>
             <a id="amazon-link" href="#" target="_blank" class="link-card card-amazon">
                 <i class="fa-brands fa-amazon"></i>
                 <span>Shop on Amazon</span>
@@ -263,34 +258,40 @@
                 <i class="fas fa-gem"></i>
                 <span>Shop on Meesho</span>
             </a>
-            <a id="map-link" href="#" target="_blank" class="link-card card-map">
-                <i class="fas fa-location-dot"></i>
-                <span>Find Our Store</span>
-            </a>
-            <a id="whatsapp-group-link" href="#" target="_blank" class="link-card card-whatsapp">
+
+            <a id="whatsapp-connect-link" href="#" target="_blank" class="link-card card-whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
-                <span>Join Our Community</span>
+                <span>Chat with Us</span>
             </a>
             <a id="call-link" href="#" class="link-card card-call">
                 <i class="fas fa-phone"></i>
                 <span>Call Us</span>
+            </a>
+
+            <a id="whatsapp-group-link" href="#" target="_blank" class="link-card card-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Join Our Community</span>
+            </a>
+            <a id="map-link" href="#" target="_blank" class="link-card card-map">
+                <i class="fas fa-location-dot"></i>
+                <span>Find Our Store</span>
             </a>
         </section>
     </div>
 
     <script>
         const config = {
-            profilePicUrl: "https://images.unsplash.com/photo-1628155930501-c5806213d2a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NXx8YnJhbmQlMjBsb2dvJTIwYWJzdHJhY3R8ZW58MHx8fHwxNjk5MjQxMDkxfDA&ixlib=rb-4.0.3&q=80&w=1080", // Replace with your brand's actual logo
+            profilePicUrl: "https://images.unsplash.com/photo-1628155930501-c5806213d2a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NXx8YnJhbmQlMjBsb2dvJTIwYWJzdHJhY3R8ZW58MHx8fHwxNjk5MjQxMDkxfDA&ixlib=rb-4.0.3&q=80&w=1080",
             brandName: "Abha By Abhay",
-            tagline: "Exquisite Demifine Jewelry for Every Occasion", // Your brand tagline
-            address: "123 Elegance Lane, Mumbai, Maharashtra 400000, India", // Your full address
-            googleMapsUrl: "http://googleusercontent.com/maps.google.com/3", // Replace with your Google Maps "Share" link
-            whatsappConnectNumber: "919876543210", // Your 10-digit WhatsApp number with country code
-            whatsappGroupLink: "https://chat.whatsapp.com/YourWhatsAppGroupInviteCode", // Your WhatsApp group invite link
-            instagramHandle: "abha_by_abhay", // Your Instagram username
-            amazonStoreLink: "https://www.amazon.in/stores/AbhaByAbhay/page/YOUR_PAGE_ID", // Your Amazon store link
-            meeshoStoreLink: "https://www.meesho.com/shop/YourShopId", // Your Meesho shop link
-            callNumber: "+919876543210" // Full number for direct calling
+            tagline: "Exquisite Demifine Jewelry for Every Occasion",
+            address: "123 Elegance Lane, Mumbai, Maharashtra 400000, India",
+            googleMapsUrl: "http://googleusercontent.com/maps.google.com/3",
+            whatsappConnectNumber: "919876543210",
+            whatsappGroupLink: "https://chat.whatsapp.com/YourWhatsAppGroupInviteCode",
+            instagramHandle: "abha_by_abhay",
+            amazonStoreLink: "https://www.amazon.in/stores/AbhaByAbhay/page/YOUR_PAGE_ID",
+            meeshoStoreLink: "https://www.meesho.com/shop/YourShopId",
+            callNumber: "+919876543210"
         };
 
         document.getElementById('profile-pic').src = config.profilePicUrl;
@@ -322,7 +323,6 @@
         hideIfPlaceholder('map-link', config.googleMapsUrl);
         hideIfPlaceholder('call-link', config.callNumber);
 
-        // Hide tagline if empty
         if (!config.tagline || config.tagline.includes("Your brand tagline")) {
             document.getElementById('brand-tagline').style.display = 'none';
         }

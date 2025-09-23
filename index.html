@@ -139,33 +139,6 @@
         .cta-icons .fa-instagram:hover { color: #E1306C; }
         .cta-icons .fa-whatsapp:hover { color: #25D366; }
 
-        .address-card {
-            background-color: var(--color-white);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px var(--shadow-subtle);
-            text-align: center;
-            margin-bottom: 30px;
-            transition: transform var(--transition-medium);
-            text-decoration: none;
-            display: block;
-        }
-        .address-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .address-card-icon {
-            font-size: 2em;
-            color: var(--color-primary);
-            margin-bottom: 10px;
-        }
-        .address-card-text {
-            color: var(--color-dark);
-            font-size: 1em;
-            line-height: 1.6;
-            margin: 0;
-        }
-
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -333,15 +306,6 @@
             </div>
         </section>
 
-        <a id="address-card-link" href="#" target="_blank" class="address-card">
-            <div class="address-card-icon">
-                <i class="fas fa-map-marked-alt"></i>
-            </div>
-            <p id="address-card-text" class="address-card-text">
-                Your Address Will Go Here.<br>India
-            </p>
-        </a>
-
         <section class="links-grid">
             <a id="amazon-link" href="#" target="_blank" class="link-card card-amazon">
                 <i class="fa-brands fa-amazon"></i>
@@ -365,9 +329,6 @@
         <a id="footer-whatsapp-link" href="#" target="_blank" aria-label="Chat on WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a id="footer-map-link" href="#" target="_blank" aria-label="Find Our Store">
-            <i class="fas fa-location-dot"></i>
-        </a>
         <a id="footer-call-link" href="#" aria-label="Call Us">
             <i class="fas fa-phone"></i>
         </a>
@@ -378,8 +339,6 @@
             profilePicUrl: "https://images.unsplash.com/photo-1628155930501-c5806213d2a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NXx8YnJhbmQlMjBsb2dvJTIwYWJzdHJhY3R8ZW58MHx8fHwxNjk5MjQxMDkxfDA&ixlib=rb-4.0.3&q=80&w=1080",
             brandName: "Abha By Abhay",
             tagline: "Exquisite Demifine Jewelry for Every Occasion",
-            address: "Your Address, 123456, India",
-            googleMapsUrl: "https://maps.app.goo.gl/keZ8QQe4tyvR5TFT7?g_st=ac",
             whatsappConnectNumber: "919309125200",
             whatsappGroupLink: "https://chat.whatsapp.com/BccHr513TahKQfyvmJCFS7",
             instagramHandle: "abha_by_abhay",
@@ -395,33 +354,27 @@
         document.getElementById('cta-instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
         document.getElementById('cta-whatsapp-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
         
-        document.getElementById('address-card-link').href = config.googleMapsUrl;
-        document.getElementById('address-card-text').innerText = config.address.replace(/, /g, '\n');
-        
         document.getElementById('amazon-link').href = config.amazonStoreLink;
         document.getElementById('meesho-link').href = config.meeshoStoreLink;
         document.getElementById('whatsapp-group-link').href = config.whatsappGroupLink;
 
         document.getElementById('footer-instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
         document.getElementById('footer-whatsapp-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
-        document.getElementById('footer-map-link').href = config.googleMapsUrl;
         document.getElementById('footer-call-link').href = `tel:${config.callNumber}`;
 
         function hideIfPlaceholder(elementId, linkValue) {
             const element = document.getElementById(elementId);
-            if (element && (!linkValue || linkValue.includes("your") || linkValue.includes("#") || linkValue.includes("https://chat.whatsapp.com/YourWhatsAppGroupInviteCode"))) {
+            if (element && (!linkValue || linkValue.includes("your") || linkValue.includes("#") || linkValue.includes("YourWhatsAppGroupInviteCode"))) {
                 element.style.display = 'none';
             }
         }
         hideIfPlaceholder('cta-instagram-link', config.instagramHandle);
         hideIfPlaceholder('cta-whatsapp-link', config.whatsappConnectNumber);
-        hideIfPlaceholder('address-card-link', config.googleMapsUrl);
         hideIfPlaceholder('amazon-link', config.amazonStoreLink);
         hideIfPlaceholder('meesho-link', config.meeshoStoreLink);
         hideIfPlaceholder('whatsapp-group-link', config.whatsappGroupLink);
         hideIfPlaceholder('footer-instagram-link', config.instagramHandle);
         hideIfPlaceholder('footer-whatsapp-link', config.whatsappConnectNumber);
-        hideIfPlaceholder('footer-map-link', config.googleMapsUrl);
         hideIfPlaceholder('footer-call-link', config.callNumber);
 
         if (!config.tagline || config.tagline.includes("Your brand tagline")) {

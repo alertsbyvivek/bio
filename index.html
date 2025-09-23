@@ -322,7 +322,7 @@
         </header>
 
         <section class="follow-cta">
-            <p>Follow us for the latest **Jwellery Collections**</p>
+            <p>Follow us for the latest **Jwellary Collections**</p>
             <div class="cta-icons">
                 <a id="cta-instagram-link" href="#" target="_blank" aria-label="Follow on Instagram">
                     <i class="fa-brands fa-instagram"></i>
@@ -378,14 +378,14 @@
             profilePicUrl: "https://images.unsplash.com/photo-1628155930501-c5806213d2a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxzZWFyY2h8NXx8YnJhbmQlMjBsb2dvJTIwYWJzdHJhY3R8ZW58MHx8fHwxNjk5MjQxMDkxfDA&ixlib=rb-4.0.3&q=80&w=1080",
             brandName: "Abha By Abhay",
             tagline: "Exquisite Demifine Jewelry for Every Occasion",
-            address: "Ambernath Thane, Maharashtra 421501, India",
-            googleMapsUrl: "http://googleusercontent.com/maps.google.com/7",
-            whatsappConnectNumber: "919876543210",
-            whatsappGroupLink: "https://chat.whatsapp.com/YourWhatsAppGroupInviteCode",
+            address: "Your Address, 123456, India",
+            googleMapsUrl: "https://maps.app.goo.gl/keZ8QQe4tyvR5TFT7?g_st=ac",
+            whatsappConnectNumber: "919309125200",
+            whatsappGroupLink: "https://chat.whatsapp.com/BccHr513TahKQfyvmJCFS7",
             instagramHandle: "abha_by_abhay",
-            amazonStoreLink: "https://www.amazon.in/stores/AbhaByAbhay/page/YOUR_PAGE_ID",
-            meeshoStoreLink: "https://www.meesho.com/shop/YourShopId",
-            callNumber: "+919876543210"
+            amazonStoreLink: "https://amzn.to/3IzC9GK",
+            meeshoStoreLink: "https://www.meesho.com/DEDHIYAENTERPRISES?_ms=3.0.1",
+            callNumber: "919309125200"
         };
 
         document.getElementById('profile-pic').src = config.profilePicUrl;
@@ -409,7 +409,7 @@
 
         function hideIfPlaceholder(elementId, linkValue) {
             const element = document.getElementById(elementId);
-            if (element && (!linkValue || linkValue.includes("your") || linkValue.includes("#"))) {
+            if (element && (!linkValue || linkValue.includes("your") || linkValue.includes("#") || linkValue.includes("https://chat.whatsapp.com/YourWhatsAppGroupInviteCode"))) {
                 element.style.display = 'none';
             }
         }

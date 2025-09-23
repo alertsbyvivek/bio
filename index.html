@@ -208,6 +208,7 @@
         .card-amazon i { color: #FF9900; }
         .card-meesho i { color: #F45244; }
         .card-whatsapp i { color: #25D366; }
+        .card-contact i { color: #007bff; }
         
         .fixed-footer {
             position: fixed;
@@ -319,6 +320,10 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>Join Our Community</span>
             </a>
+            <a id="save-contact-link" href="#" target="_blank" class="link-card card-contact">
+                <i class="fas fa-id-card"></i>
+                <span>Save Our Contact</span>
+            </a>
         </section>
     </div>
 
@@ -357,6 +362,9 @@
         document.getElementById('amazon-link').href = config.amazonStoreLink;
         document.getElementById('meesho-link').href = config.meeshoStoreLink;
         document.getElementById('whatsapp-group-link').href = config.whatsappGroupLink;
+
+        // VCF file link
+        document.getElementById('save-contact-link').href = "abha-by-abhay.vcf";
 
         document.getElementById('footer-instagram-link').href = `https://www.instagram.com/${config.instagramHandle}`;
         document.getElementById('footer-whatsapp-link').href = `https://wa.me/${config.whatsappConnectNumber}`;
